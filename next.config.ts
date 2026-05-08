@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/your-repo-name',
+  basePath: isProd ? '/sorrowlink' : '',
   images: {
-    unoptimized: true, // GitHub Pages can't optimize images
+    unoptimized: true,
   },
 }
 

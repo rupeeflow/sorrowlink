@@ -14,6 +14,8 @@ export function Header() {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const searchRef = useRef<HTMLDivElement>(null);
 
   const results: Product[] = useMemo(() => {
@@ -99,7 +101,7 @@ export function Header() {
             {/* Cart */}
             <Link href="/cart" className="relative p-2 rounded-xl hover:bg-slate-100 transition-colors">
               <ShoppingCart size={20} className="text-slate-700" />
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-indigo-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                   {totalItems > 9 ? '9+' : totalItems}
                 </span>

@@ -90,7 +90,7 @@ export default function CheckoutPage() {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-400"
-                  placeholder="Rahul Rao"
+                  placeholder="Jathin Sharma"
                 />
               </div>
               <div>
@@ -109,12 +109,12 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            {/* <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-sm font-semibold text-slate-800">Payment (placeholder)</p>
               <p className="text-xs text-slate-500 mt-1">
                 Razorpay/Stripe/PayU integration can be connected using the `createPaymentIntent()` hook.
               </p>
-            </div>
+            </div> */}
 
             {error && <p className="mt-4 text-sm text-rose-600">{error}</p>}
 
