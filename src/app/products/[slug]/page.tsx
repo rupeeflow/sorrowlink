@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
-import { getProductBySlug, getRelatedProducts } from '@/data/products';
+import { products, getProductBySlug, getRelatedProducts } from '@/data/products';
 import { StarRating } from '@/components/ui/StarRating';
 import { Badge, InstantDownloadBadge } from '@/components/ui/Badge';
 import { ProductCard } from '@/components/ui/ProductCard';
@@ -11,6 +11,10 @@ import { AddToCartButton } from '@/components/ui/AddToCartButton';
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: ProductDetailPageProps): Promise<Metadata> {
