@@ -1,14 +1,17 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { Minus, Plus, Trash2, ArrowRight, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/lib/cart-context';
 import { formatINR } from '@/lib/pricing';
 
 export default function CartPage() {
   const { items, totalPrice, removeFromCart, updateQuantity } = useCart();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
-  if (items.length === 0) {
+  if (!mounted || items.length === 0) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-20 text-center">
         <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-100 flex items-center justify-center mb-4">
